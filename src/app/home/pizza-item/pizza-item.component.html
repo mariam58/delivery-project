@@ -1,0 +1,24 @@
+<div class="card h-100 pizza-item" *ngIf="pizza">
+    <img src="../../../assets/img/pizza1.jpg" class="card-img-top" alt="...">
+    <div class="quick-view-box" (click)="quickView()">
+      <!-- <a class="" [routerLink]="['/pizzaitem', pizza.name]"> -->
+      <button type="button" class="btn quick-view-link" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="sendDataToSingle()">
+        დეტალურად
+    </button>
+  <!-- </a> -->
+    </div>
+    
+    <div class="card-body">
+      <h5 class="card-title">{{pizza.name}}</h5>
+      <p class="card-text">{{pizza.ingredients}}...</p>
+      <span class="item-price"><strong>{{pizza.price}} ₾</strong></span>
+      <button class="btn item-add-to-cart" (click)="addToCart()">ყიდვა<i class="fas fa-shopping-bag"></i></button>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->

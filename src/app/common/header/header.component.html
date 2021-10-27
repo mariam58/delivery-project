@@ -1,0 +1,58 @@
+<header>
+    <section class="container-fluid">
+        <div class="d-flex justify-content-between">
+            <div class="logo">
+                <a class="nav-link" [routerLink]="['']">
+                    <img src="../../assets/img/logo.png" alt="">
+                </a>
+            </div>
+            <div class="main-nav">
+                <nav>
+                    <ul class="nav" [class.text-dark-color]="this.route">
+                    
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">მენიუ</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">ჩვენ შესახებ</a>
+                        </li>
+                    
+                    </ul>
+                </nav>
+            </div>
+            <div class="quick-nav">
+                <nav>
+                    <ul class="nav" [class.text-dark-color]="this.route">
+                    
+                        <!-- <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                        </li> -->
+                        <li class="nav-item" *ngIf="!this.authService.userToten">
+                        <a class="nav-link login-route" [routerLink]="['auth/login']"><i class="fas fa-user"></i></a>
+                        </li>
+                        <li class="nav-item dropdown" *ngIf="this.authService.userToten">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i> გამარჯობა
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" [routerLink]="['profile']">პროფილი</a></li>
+                              <li><a class="dropdown-item" href="#">ჩემი შეკვეთები</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#" (click)="this.authService.logOut()"><i class="fas fa-sign-out-alt text-muted"></i>გასვლა</a></li>
+                            </ul>
+                          </li>
+                        <li class="nav-item">
+                            <button class="navbar-toggler fixed-cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                <i class="fas fa-shopping-bag"></i>
+                              </button>
+                            <!-- <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i></a> -->
+                        </li>
+                    
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+</header>
+
+

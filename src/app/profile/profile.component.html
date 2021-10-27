@@ -1,0 +1,48 @@
+<section class="container-fluid mt-5 mb-5">
+  <div class="container">
+      <h3>პირადი ინფორმაცია</h3>
+      <form class="row g-3" action="" #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+      <div class="col-md-6">
+        <label for="exampleInputText1" class="form-label">სახელი</label>
+        <input type="text" class="form-control" id="exampleInputText1" name="firstName" required [(ngModel)]="profile.firstName">
+  
+      </div>
+      <div class="col-md-6">
+        <label for="exampleInputText2" class="form-label">გვარი</label>
+        <input type="text" class="form-control" id="exampleInputText2" name="lastName" required [(ngModel)]="profile.lastName">
+  
+      </div>
+
+      <div class="col-md-6">
+          <label for="exampleInputEmail1" class="form-label">ელ-ფოსტა</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required [(ngModel)]="profile.email">
+    
+        </div>
+
+        <div class="col-md-6">
+          <label for="phone" class="form-label">ტელეფონი</label>
+          <input type="tel" class="form-control" id="phone" name="phone" placeholder="123-45-67-89" required [(ngModel)]="profile.phone">
+        </div>
+
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">მისამართი</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="ქუჩა, ბინის N ..." name="address"  required [(ngModel)]="profile.address">
+        </div>
+
+      <!-- <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password" required [(ngModel)]="profile.password">
+      </div> -->
+
+      <!-- <div class="mb-3">
+          <label for="exampleFormControlTextarea1">bio</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="bio" required [(ngModel)]="profile.bio"></textarea>
+        </div> -->
+        <div class="col-12"> 
+          <button type="submit" class="btn">ინფორმაციის განახლება</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+

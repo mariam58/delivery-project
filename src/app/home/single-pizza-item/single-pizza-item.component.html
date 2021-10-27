@@ -1,0 +1,22 @@
+<section class="container-fluid mt-5 mb-5">
+  <section class="container">
+    <div class="row single-item-box" *ngFor="let pizza of singleArticle">
+      <div class="col item-img-box">
+         <img src="../../../assets/img/pizza1.jpg" class="item-img img-fluid" alt="...">
+      </div>
+      <div class="col item-descr-box">
+        <h5 class="item-title">{{pizza.name}}</h5>
+        <p class="item-ingredients">{{pizza.ingredients}}...</p>
+        <div class="btn-group bg-white">
+          
+          <button class="btn" (click)="onAdd()">+</button>
+          <input class="btn" type="number" min="1" value="{{ count }}">
+          <button class="btn" (click)="onMinus()">-</button>        
+      </div>
+        <span class="item-price">{{pizza.price}}₾</span>
+        <button class="btn item-add-to-cart" (click)="addToCart()">ყიდვა<i class="fas fa-shopping-bag"></i></button>
+
+      </div>
+    </div>
+  </section>
+</section>

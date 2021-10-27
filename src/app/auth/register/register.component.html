@@ -1,0 +1,30 @@
+<section class="container-fluid mt-5 mb-5">
+    <div class="auth-form-box p-5">
+        <div class="auth-form-header d-flex">
+            <div>
+                <span class="auth-icon"><i class="fas fa-user"></i></span> 
+            </div>
+            <div>
+                <h4>რეგისტრაცია</h4>
+                <span class="text-muted">შექმენით თქვენი ანგარიში</span> 
+            </div>
+        </div>
+     
+        <form action="" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">ელ-ფოსტა</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required ngModel>
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">პაროლი</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" required ngModel>
+            </div>
+            <button type="submit" class="btn">რეგისტრაცია</button>
+        </form>
+        <div class="text-center">
+            <p class="mt-5">თუ უკვე დარეგისტრირებული ხართ გაიარეთ</p>
+            <a class="nav-link" [routerLink]="['/auth/login']">ავტორიზაცია</a>
+        </div>
+
+    </div>
+</section>

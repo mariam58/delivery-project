@@ -1,0 +1,40 @@
+.pizza-item {
+    // box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    .quick-view-box{
+        transition: all 0.2s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.2);
+    width: 100%;
+    height: 60%;
+    top: 0;
+    border-radius: 7px 7px 0 0;
+    
+    .quick-view-link{
+    //     float: left;
+    // width: 80%;
+    // line-height: 46px;
+    // height: 39px;
+    background: #F02B2F;
+    border-radius: 3px;
+    margin-left: 25%;
+    position: relative;
+    top: 40%;
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+    }
+    }
+    .quick-view-box:hover{
+        opacity: 1;
+    }
+    .item-add-to-cart{
+        float: right;
+        background-color: #F02B2F;
+        color: #fff;
+        i{
+            color: #fff;
+            margin-left: 5px;
+        }
+    }
+}

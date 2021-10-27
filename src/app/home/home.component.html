@@ -1,0 +1,202 @@
+<section class="container-fluid m-0 p-0">
+    <!-- <video class="video-full" autoplay loop src="../../assets/img/pexels-kampus-production-8627114.mp4"></video> -->
+    <div class="cover-video">
+        <video class="video-full" width="100%" autoplay loop>
+            <source src="../../assets/img/pexels-kampus-production-8627114.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../../assets/img/pizza1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/img/pizza2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/img/pizza3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+</section>
+
+<section class="container-fluid mb-5">
+    <div class="container product-container p-5">
+      <div class="row">
+        <div class="col-3">
+          <!-- <div class="cart-box" >
+            <h5><i class="fas fa-shopping-bag"></i> კალათა</h5>
+            <div class="cart-item" *ngFor="let item of test">
+              <div class="row">
+                <div class="col-4">
+                  <img src="../../../assets/img/pizza1.jpg" alt="" class="img-fluid">
+                  
+                </div>
+                <div class="col-8">
+                  <p>{{item.name}}</p>
+                  <p>{{item.price}}</p>
+                  <button class="btn" (click)="removeItem()"><i class="fas fa-times"></i></button>
+                  
+                </div>
+              </div>
+            </div>
+          
+          </div> -->
+          <div class="filter-box">
+          <form action="" #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
+            <div class="my-search-box">
+              <input 
+              class="form-control me-2 my-search" 
+              type="search" 
+              placeholder="ძიება" 
+              aria-label="Search" 
+              id="search" 
+              name="search"
+              [(ngModel)]="searchTerm"
+              (change)="search()"
+              >
+            </div>
+            <div class="btn-group-vertical my-category-box mt-4" role="group" aria-label="Basic radio toggle button group">
+              <input 
+              type="radio" 
+              class="btn-check" 
+              name="btnradio" 
+              id="btnradio1" 
+              autocomplete="off" 
+              checked
+              (click)="filterPizza('all')"
+              >
+              <label class="btn" for="btnradio1">ყველა</label>
+            
+              <input 
+              type="radio" 
+              class="btn-check" 
+              name="btnradio" 
+              id="btnradio2" 
+              autocomplete="off"
+              (click)="filterPizza('classic')"
+              >
+              <label class="btn" for="btnradio2">საფირმო პიცები</label>
+            
+              <input 
+              type="radio" 
+              class="btn-check" 
+              name="btnradio" 
+              id="btnradio3" 
+              autocomplete="off"
+              (click)="filterPizza('branded')"
+              >
+              <label class="btn" for="btnradio3">კლასიკური პიცები</label>
+            </div>
+          </form>
+          </div>
+
+        </div>
+        <div class="col-9">
+          
+          <!-- <div *ngIf="childDataReceived"><h1>{{childDataReceived.name}}</h1></div> -->
+          
+          <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="pizzaList.length">
+            
+            <app-pizza-item class="col" 
+            *ngFor="let item of pizzaList" 
+            [pizza]="item" 
+            (onAddToCartClick)="receiveData($event)" 
+            (viewDetail)="singlePainter($event)">
+          </app-pizza-item>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+</section>
+
+<!-- cart -->
+<section class="container-fluid">
+  <div class="offcanvas offcanvas-end cart-box" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">კალათა</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="card cart-item" *ngFor="let item of cartList">
+        <div class="row">
+          <div class="col-4">
+            <img src="../../../assets/img/pizza1.jpg" alt="" class="img-fluid">
+           
+          </div>
+          <div class="col-8">
+            <span>{{item.name}}</span>
+            <div>{{item.price}} ₾</div>
+            <!-- <input class="cart-item-quantity" type="number" min="1" value="{{itemQuantity}}"> -->
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-primary" (click)="dec(item)">-</button>
+              <button type="button" class="btn btn-primary">{{item.quantity}}</button>
+              <button type="button" class="btn btn-primary" (click)="inc(item)">+</button>
+            </div>
+            <button class="btn remove-item-btn" (click)="removeItem(item)"><i class="fas fa-times"></i></button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas-footer p-3">
+      <div class="d-flex justify-content-between">
+        <div>
+          <span>ჯამი {{totalAmount}} ₾</span>
+        </div>
+     
+        <div>
+          <button class="btn text-white">შეუკვეთე</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- single -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">
+              <img src="../../assets/img/logo.png" alt="">
+      </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row single-item-box">
+          <div class="col item-img-box">
+             <img src="../../../assets/img/pizza1.jpg" class="item-img img-fluid" alt="...">
+          </div>
+          <div class="col item-descr-box">
+            <h5 class="item-title">{{chosenItem.name}}</h5>
+            <p class="item-ingredients">{{chosenItem.ingredients}}...</p>
+            
+            <p class="item-price">{{chosenItem.price}}₾</p>
+            <!-- <input class="cart-item-quantity" type="number" min="1" value="{{itemQuantity}}"> -->
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-primary" (click)="dec(chosenItem)">-</button>
+              <button type="button" class="btn btn-primary">{{chosenItem.quantity}}</button>
+              <button type="button" class="btn btn-primary" (click)="inc(chosenItem)">+</button>
+            </div>
+          <button class="btn item-add-to-cart" (click)="addToCart(chosenItem)">ყიდვა<i class="fas fa-shopping-bag"></i></button>
+
+            
+          </div>
+        </div>
+      
+      </div>
+      <div class="modal-footer mb-5">
+       
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pizza-delivery-b1a36": {
+      "hosting": {
+        "pizza-delivery-project": [
+          "pizza-delivery-b1a36"
+        ]
+      }
+    }
+  }
+}

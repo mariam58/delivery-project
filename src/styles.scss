@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family: Noto Sans Georgian;
+    background-color: #FEE8DE;
+}
+*,ul{
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+button[type="submit"]{
+    background-color: #F02B2F;
+            color: #fff;
+            width: 100%;
+            padding: 15px 0;
+}
+.text-dark-color{
+    li a, li a i{
+       color: #000!important;   
+    }
+  
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+input:focus, input.form-control:focus {
+
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
