@@ -20,7 +20,9 @@ export class ProfileComponent implements OnInit {
     address: '',
     phone: 0,
   };
-  constructor(private authService: AuthService, private profileService: ProfileService) { }
+ 
+
+  constructor(private authService: AuthService, private profileService: ProfileService ) { }
 
   ngOnInit(): void {
     this.authService.getCurrentUser().then((user) => {
@@ -33,11 +35,18 @@ export class ProfileComponent implements OnInit {
           // console.log(data)
           if (data[0]) {
             this.profile = { ...data[0] };
+         
+        
           }
         });
       }
     });
+ 
   }
+
+
+
+
 
   onSubmit(form: NgForm) {
     if (form.valid) {

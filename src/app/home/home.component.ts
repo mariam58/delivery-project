@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     this.getProductTwo()
     // this.getAllProduct();
     this.cartListPainter()
+    // console.log(this.cartList.length)
   }
   public cartList: IPoduct[]=[];
   // public test:IPoduct[]=[];

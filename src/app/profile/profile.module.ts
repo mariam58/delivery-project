@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ProfileRoutingModule,
     FormsModule
-  ]
+  ],
+  providers: [ProfileComponent]
 })
 export class ProfileModule { }

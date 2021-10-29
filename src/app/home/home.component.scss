@@ -29,9 +29,34 @@
 }
 
 .cart-box{
+    background-color: #F02B2F;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    .cart-title{
+        margin-bottom: 20px;
+        color: #fff;
+    }
+    .cart-footer{
+        background-color: #fff;
+        border-radius: 5px;
+        color: #000!important;
+        padding: 10px;
+    
+    }
     .cart-item{
         overflow: hidden;
         margin-bottom: 20px;
+        .controls-group{
+            margin-left: 8px;
+            .quantity-controls{
+            padding: 5px;
+            cursor: pointer;
+        }
+        .quantity-number{
+            padding: 5px;
+        }
+        }
       
       .remove-item-btn{
           position: absolute;
@@ -65,4 +90,8 @@
     display: inline-block;
     width: 50px;
     border: unset;
+}
+
+.display-cart{
+    display: none;
 }

@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppRoutingModule,
     SharedModule,
     HomeModule,
+    ProfileModule,
     AngularFirestoreModule
   ],
   providers: [],

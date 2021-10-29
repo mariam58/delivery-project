@@ -31,6 +31,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AngularFirestoreModule,
     FormsModule
-  ]
+  ],
+  // providers: [HomeComponent],
 })
 export class HomeModule { }

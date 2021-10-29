@@ -27,12 +27,12 @@
                         <!-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
                         </li> -->
-                        <li class="nav-item" *ngIf="!this.authService.userToten">
-                        <a class="nav-link login-route" [routerLink]="['auth/login']"><i class="fas fa-user"></i></a>
+                        <li class="nav-item login-route" *ngIf="!this.authService.userToten">
+                        <a class="nav-link" [routerLink]="['auth/login']"><i class="fas fa-user"></i></a>
                         </li>
-                        <li class="nav-item dropdown" *ngIf="this.authService.userToten">
+                        <li class="nav-item dropdown login-route" *ngIf="this.authService.userToten">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user"></i> გამარჯობა
+                                <i class="fas fa-user"></i>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <li><a class="dropdown-item" [routerLink]="['profile']">პროფილი</a></li>

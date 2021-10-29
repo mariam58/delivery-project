@@ -10,24 +10,38 @@
     <div class="container product-container p-5">
       <div class="row">
         <div class="col-3">
-          <!-- <div class="cart-box" >
-            <h5><i class="fas fa-shopping-bag"></i> კალათა</h5>
-            <div class="cart-item" *ngFor="let item of test">
+          <div class="cart-box" [class.display-cart]="this.cartList.length===0">
+            <h5 class="cart-title"><i class="fas fa-shopping-bag"></i> კალათა</h5>
+            <div class="card cart-item" *ngFor="let item of cartList">
               <div class="row">
                 <div class="col-4">
                   <img src="../../../assets/img/pizza1.jpg" alt="" class="img-fluid">
-                  
+                  <div class="controls-group">
+                    <span class="quantity-controls" (click)="dec(item)">-</span>
+                    <span class="quantity-number">{{item.quantity}}</span>
+                    <span class="quantity-controls"(click)="inc(item)">+</span>
+                  </div>
                 </div>
                 <div class="col-8">
-                  <p>{{item.name}}</p>
-                  <p>{{item.price}}</p>
-                  <button class="btn" (click)="removeItem()"><i class="fas fa-times"></i></button>
+                  <span>{{item.name}}</span>
+                  <div>{{item.price}} ₾</div>
+                  <!-- <input class="cart-item-quantity" type="number" min="1" value="{{itemQuantity}}"> -->
+                 
+                  <button class="btn remove-item-btn" (click)="removeItem(item)"><i class="fas fa-times"></i></button>
                   
                 </div>
               </div>
             </div>
-          
-          </div> -->
+            <div class="d-flex justify-content-between cart-footer">
+              <div>
+                <span class="btn">ჯამი {{totalAmount}} ₾</span>
+              </div>
+           
+              <div>
+                <button class="btn">შეუკვეთე</button>
+              </div>
+            </div>
+          </div>
           <div class="filter-box">
           <form action="" #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
             <div class="my-search-box">
@@ -98,7 +112,7 @@
 </section>
 
 <!-- cart -->
-<section class="container-fluid">
+<!-- <section class="container-fluid">
   <div class="offcanvas offcanvas-end cart-box" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="offcanvasNavbarLabel">კალათა</h5>
@@ -114,7 +128,7 @@
           <div class="col-8">
             <span>{{item.name}}</span>
             <div>{{item.price}} ₾</div>
-            <!-- <input class="cart-item-quantity" type="number" min="1" value="{{itemQuantity}}"> -->
+         
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-primary" (click)="dec(item)">-</button>
               <button type="button" class="btn btn-primary">{{item.quantity}}</button>
@@ -138,7 +152,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- single -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
