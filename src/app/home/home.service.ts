@@ -39,26 +39,4 @@ getProductTwo(){
   return this.fireStoreService.collection('brandedPizza').snapshotChanges();
 }
 
-  // getSearch(name: string) {
-  //   return this.fireStoreService
-  //     .collection<IPoduct>('pizza', (ref) =>
-  //       ref.where('name', '==', name)
-  //     )
-  //     .snapshotChanges()
-  //     .pipe(
-  //       map((res) =>
-  //         res.map((snap) => {
-            
-  //           const data = snap.payload.doc.data() as IPoduct;
-  //           const id = snap.payload.doc.id;
-  //           // console.log(id)
-  //           return { ...data, id };
-            
-  //         })
-  //       )
-  //     );
-  // }
-
-
-
 }

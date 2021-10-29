@@ -12,18 +12,6 @@ export class AuthService {
   userToten: string | undefined = undefined;
   constructor(private router: Router, private afAuth: AngularFireAuth) { }
 
-  // login(credentials: ILoginData){
-  //   this.afAuth
-  //   .signInWithEmailAndPassword(credentials.email, credentials.password)
-  //   .then((response)=>{
-  //     console.log('current user', response.user?.getIdToken());
-  //     this.router.navigate(['/']);
-  //   })
-  //   .catch((err)=>{
-  //     console.warn('current user', err);
-  //   });
-  // }
-
   updateAuthState(): void{
     this.afAuth.authState.subscribe( async (data)=>{
       const result = await data?.getIdTokenResult();

@@ -12,14 +12,8 @@ import { IPoduct } from './shared/product.db';
 })
 export class HomeComponent implements OnInit {
 
-  public pizzaList: IPoduct[]=[];
-  public pizzaListTwo: IPoduct[]=[];
-  
+  public pizzaList: IPoduct[]=[];  
   cachedPizzaList: IPoduct[]=[];
-  cachedPizzaListTwo: IPoduct[]=[];
-  private allProdactDataOne: IPoduct[]=[];
-  private allProdactDataTwo: IPoduct[]=[];
-  private allProdactData: IPoduct[]=[];
   private _searchTerm: string = ''; 
   get searchTerm(): string {
     return this._searchTerm;
@@ -35,10 +29,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct()
-    // this.getProductTwo()
+    this.getProductTwo()
     // this.getAllProduct();
     this.cartListPainter()
-  //  this.getDataFromCart()
   }
   public cartList: IPoduct[]=[];
   // public test:IPoduct[]=[];
@@ -146,11 +139,10 @@ export class HomeComponent implements OnInit {
       })
       
       this.cachedPizzaList = [...this.pizzaList];
-      this.allProdactDataTwo  = this.allProdactDataOne.concat(this.cachedPizzaList)
-      // console.log(this.pizzaList)
+   
     })
 
-  
+ 
   
   }
 
@@ -164,17 +156,15 @@ export class HomeComponent implements OnInit {
           id: post.payload.doc.id
         };
       })
-      
-      this.cachedPizzaListTwo = [...this.pizzaList];
-      this.allProdactData  = this.allProdactDataTwo.concat(this.cachedPizzaListTwo)
-      console.log(this.allProdactData)
+   
+      this.cachedPizzaList = this.cachedPizzaList.concat([...this.pizzaList]);
     })
 
   }
 
   getAllProduct(){
-    this.pizzaList = this.allProdactData; 
-    console.log(this.allProdactData)
+    this.pizzaList = this.cachedPizzaList; 
+
   }
   
   onSubmit(form: NgForm){
@@ -183,7 +173,7 @@ export class HomeComponent implements OnInit {
 
   search(){
     if(this.searchTerm.length>2){
-      this.pizzaList = this.allProdactData.filter((p)=>p.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
+      this.pizzaList = this.cachedPizzaList.filter((p)=>p.name.toLowerCase().includes(this.searchTerm.toLowerCase()))
     }
     else{
       this.getAllProduct()
